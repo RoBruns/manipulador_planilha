@@ -1,8 +1,10 @@
-import pandas as pd
 import glob
 import os
 
+import pandas as pd
 
+
+# noqa: E501
 def convert_csv_to_xlsx():
     global return_
     return_ = False
@@ -15,7 +17,9 @@ def convert_csv_to_xlsx():
     csv_files = glob.glob(os.path.join(input_folder, "*.csv"))
 
     if not csv_files:
-        print("Nenhum arquivo CSV encontrado na pasta. Por favor, adicione um arquivo CSV antes de continuar.")
+
+        print("Nenhum arquivo CSV encontrado na pasta. Por favor, adicione um \
+            arquivo CSV antes de continuar.")
         input("Pressione Enter para sair...")
         return_ = True
 
@@ -36,14 +40,16 @@ def convert_csv_to_xlsx():
             try:
                 df = pd.read_csv(csv_file)
                 print(
-                    f"Você está prestes a converter o arquivo CSV '{csv_file}' para XLSX como '{xlsx_file}'.")
+                    f"Você está prestes a converter o arquivo CSV '{csv_file}'\
+                        para XLSX como '{xlsx_file}'.")
                 confirmation = input(
                     "Deseja continuar? (Digite [s]im para confirmar): ")
 
                 if confirmation.lower() == 's':
                     df.to_excel(xlsx_file, engine='xlsxwriter')
                     print(
-                        f"Arquivo CSV '{csv_file}' convertido para XLSX como '{xlsx_file}'.")
+                        f"Arquivo CSV '{csv_file}' convertido para XLSX como \
+                            '{xlsx_file}'.")
                 else:
                     print(f"Conversão do arquivo CSV '{csv_file}' cancelada.")
             except pd.errors.ParserError as e:
