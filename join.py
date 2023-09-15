@@ -3,8 +3,8 @@ import glob
 
 
 def combine_sheets():
-    global return_
-    return_ = False
+    global return_menu
+    return_menu = False
     # Obter lista de arquivos de planilha
     spreadsheet_files = glob.glob("upload_file/*.xlsx")
 
@@ -49,7 +49,7 @@ def combine_sheets():
             f"output_file/{base_file_name}.xlsx", index=False)
         print("A planilha foi combinada e salva com sucesso.")
     else:
-        return_ = True
+        return_menu = True
         print("Operação cancelada pelo cliente.")
 
 

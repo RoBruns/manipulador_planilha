@@ -6,8 +6,8 @@ import pandas as pd
 
 # noqa: E501
 def convert_csv_to_xlsx():
-    global return_
-    return_ = False
+    global return_menu
+    return_menu = False
 
     # Pasta de entrada e saída
     input_folder = "upload_file"
@@ -21,7 +21,7 @@ def convert_csv_to_xlsx():
         print("Nenhum arquivo CSV encontrado na pasta. Por favor, adicione um \
             arquivo CSV antes de continuar.")
         input("Pressione Enter para sair...")
-        return_ = True
+        return_menu = True
 
     else:
         print(f"Foram encontrados {len(csv_files)} arquivos CSV na pasta.")
@@ -29,7 +29,7 @@ def convert_csv_to_xlsx():
             "Deseja continuar a conversão? (Digite [s]im para confirmar): ")
 
         if confirmation.lower() != 's':
-            return_ = True
+            return_menu = True
             return
 
         for csv_file in csv_files:
