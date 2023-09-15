@@ -1,38 +1,49 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'front.ui'
+# Form generated from reading UI file 'front.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+# Created by: Qt User Interface Compiler version 6.5.2
 ##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
+# WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
+                            QMetaObject, QObject, QPoint, QRect,
+                            QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QPushButton, QSizePolicy, QWidget)
+                           QFont, QFontDatabase, QGradient, QIcon,
+                           QImage, QKeySequence, QLinearGradient, QPainter,
+                           QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QLabel, QPushButton, QSizePolicy,
+                               QWidget)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(1107, 753)
-        self.openFileButton = QPushButton(Form)
+from images import icons_rc
+
+
+class Ui_form(object):
+    def setupUi(self, form):
+        if not form.objectName():
+            form.setObjectName(u"form")
+        form.resize(834, 664)
+        self.openFileButton = QPushButton(form)
         self.openFileButton.setObjectName(u"openFileButton")
-        self.openFileButton.setGeometry(QRect(70, 500, 171, 81))
+        self.openFileButton.setGeometry(QRect(70, 420, 141, 41))
+        self.label = QLabel(form)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(50, 150, 171, 181))
+        self.label.setPixmap(QPixmap(u"images/file_icon.png"))
+        self.label.setScaledContents(True)
 
-        self.retranslateUi(Form)
+        self.retranslateUi(form)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(form)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.openFileButton.setText(QCoreApplication.translate("Form", u"PushButton", None))
+    def retranslateUi(self, form):
+        form.setWindowTitle(QCoreApplication.translate(
+            "form", u"ManipuladorDePlanilha", None))
+        self.openFileButton.setText(QCoreApplication.translate(
+            "form", u"Selecionar arquivo", None))
+        self.label.setText("")
     # retranslateUi
-
