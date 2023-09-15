@@ -1,7 +1,38 @@
 import pandas as pd
 import glob
 import os
-# import re
+import re
+
+
+def validate_cpf(cpf):
+    # Remova todos os caracteres não numéricos
+    cpf = re.sub(r'[^0-9]', '', cpf)
+
+    if len(cpf) != 11:
+        return False
+
+    # Verifique se todos os dígitos são iguais
+    if len(set(cpf)) == 1:
+        return False
+
+    # Cálculo dos dígitos verificadores
+    total1 = 0
+    total2 = 0
+
+    for i in range(9):
+        total1 += int(cpf[i]) * (10 - i)
+        total2 += int(cpf[i]) * (11 - i)
+
+    digit1 = 11 - (total1 % 11)
+    if digit1 >= 10:
+        digit1 = 0
+
+    total2 += digit1 * 2
+    digit2 = 11 - (total2 % 11)
+    if digit2 >= 10:
+        digit2 = 0
+
+    return int(cpf[9]) == digit1 and int(cpf[10]) == digit2
 
 
 def cpf_in_sheets():
@@ -30,6 +61,8 @@ def cpf_in_sheets():
         # Pegando o nome de uma das partes
         baseFileName = os.path.join("output_file", os.path.splitext(
             os.path.basename(xlsx_file))[0] + ".txt")
+        invalidCpffileName = os.path.join("output_file", os.path.splitext(
+            os.path.basename(xlsx_file))[0] + "_cpf_invalidos.txt")
 
         planilha = pd.read_excel(xlsx_file)
 
@@ -46,10 +79,18 @@ def cpf_in_sheets():
             col for col in planilha.columns if 'cpf' in col.lower()]
 
         if coluna_encontrada:
-            with open(baseFileName, 'w') as f:
-                planilha[coluna_encontrada[0]].to_string(f, index=False)
+            with open(baseFileName, 'w') as f, open(invalidCpffileName, 'w') as invalid_f:
+                for cpf in planilha[coluna_encontrada[0]]:
+                    cpf = str(cpf)
+                    if validate_cpf(cpf):
+                        f.write(cpf + '\n')
+                    else:
+                        invalid_f.write(cpf + '\n')
+
             print(
                 f"Arquivo XLSX '{xlsx_file}' convertido para TXT como '{baseFileName}'.")
+            print(
+                f"CPF inválidos no arquivo XLSX '{xlsx_file}' gravados em '{invalidCpffileName}'.")
         else:
             print(
                 f"Nenhuma coluna correspondente encontrada no arquivo XLSX '{xlsx_file}'.")
