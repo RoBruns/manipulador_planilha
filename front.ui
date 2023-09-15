@@ -45,6 +45,19 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="file_info_label">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>340</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="images/icons.qrc"/>

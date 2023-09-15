@@ -17,7 +17,6 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
                            QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QLabel, QPushButton, QSizePolicy,
                                QWidget)
-
 from images import icons_rc
 
 
@@ -34,6 +33,9 @@ class Ui_form(object):
         self.label.setGeometry(QRect(50, 150, 171, 181))
         self.label.setPixmap(QPixmap(u"images/file_icon.png"))
         self.label.setScaledContents(True)
+        self.file_info_label = QLabel(form)
+        self.file_info_label.setObjectName(u"file_info_label")
+        self.file_info_label.setGeometry(QRect(90, 340, 101, 16))
 
         self.retranslateUi(form)
 
@@ -46,4 +48,6 @@ class Ui_form(object):
         self.openFileButton.setText(QCoreApplication.translate(
             "form", u"Selecionar arquivo", None))
         self.label.setText("")
+        self.file_info_label.setText(
+            QCoreApplication.translate("form", u"NUll", None))
     # retranslateUi

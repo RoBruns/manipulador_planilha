@@ -1,11 +1,6 @@
-# import sep
-# import os
-# import join
-# import cvs_to_xlsx
-# import cpf_in_sheets
 import os
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from front_ui import Ui_form
 
 
@@ -21,27 +16,36 @@ class App(QMainWindow):
         file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
         file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
 
-        if file_dialog.exec_():
+        if file_dialog.exec():
             selected_files = file_dialog.selectedFiles()
-            for file in selected_files:
-                # Obtém o caminho da pasta 'upload_file' atual
+            if selected_files:
+                file_names = ", ".join(os.path.basename(file)
+                                       for file in selected_files)
+
+                # Mostrar a mensagem pop-up
+                QMessageBox.information(
+                    self, "Arquivos Selecionados", f"Arquivos selecionados: {file_names}")
+
                 current_directory = os.getcwd()
                 upload_folder = os.path.join(current_directory, "upload_file")
-
-                # Verifica se a pasta 'upload_file' existe e a cria, se necessário
                 if not os.path.exists(upload_folder):
                     os.makedirs(upload_folder)
 
-                # Obtém apenas o nome do arquivo do caminho completo
-                file_name = os.path.basename(file)
+                for file in selected_files:
+                    file_name = os.path.basename(file)
+                    destination_path = os.path.join(upload_folder, file_name)
+                    os.rename(file, destination_path)
+                    print("Arquivo movido para:", destination_path)
 
-                # Cria o caminho completo para o arquivo na pasta 'upload_file'
-                destination_path = os.path.join(upload_folder, file_name)
-
-                # Move o arquivo selecionado para a pasta 'upload_file'
-                os.rename(file, destination_path)
-
-                print("Arquivo movido para:", destination_path)
+                # Atualizar a etiqueta na janela principal
+                self.ui.file_info_label.setText(
+                    f"{file_names}")
+            else:
+                # Nenhum arquivo selecionado
+                QMessageBox.warning(self, "Nenhum Arquivo",
+                                    "Nenhum arquivo foi selecionado.")
+                # Atualizar a etiqueta na janela principal
+                self.ui.file_info_label.setText("Null")
 
 
 def main():
