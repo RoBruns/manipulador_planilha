@@ -1,0 +1,84 @@
+import sep
+import os
+import join
+import cvs_to_xlsx
+import cpf_in_sheets
+from PySide6.QtWidgets import QMainWindow, QFileDialog
+# Importe a classe gerada pelo pyside6-uic
+from front_ui import Ui_MainWindow
+
+
+class App(QMainWindow)
+    def __init__(self)
+        super().__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.ui.openFileButton.clicked.connect(self.show_file_dialog)
+
+    def show_file_dialog(self)
+        file_dialog = QFileDialog(self)
+        # Defina o modo de arquivo corretamente
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter(All Files ();;Text Files (.txt))
+
+        if file_dialog.exec_()
+            selected_files = file_dialog.selectedFiles()
+            for file in selected_files
+                print(Arquivo selecionado, file)
+
+
+def main()
+    print(Bem-vindo ao programa de manipulação de planilhas!)
+
+    while True
+        print(nOpções)
+        print(1 - Separar planilha)
+        print(2 - Juntar planilhas)
+        print(3 - Converter CSV para XLSX)
+        print(4 - Pegar o cpf em uma planilha)
+        print(5 - Sair)
+
+        choice = input(Digite o número da opção desejada )
+        print()
+
+        if choice == '1'
+            os.system('cls')
+            sep.separate_sheet()
+            print()
+            if sep.return_menu
+                os.system('cls')
+                continue
+
+        elif choice == '2'
+            os.system('cls')
+            join.combine_sheets()
+            print()
+            if join.return_menu
+                os.system('cls')
+                continue
+
+        elif choice == '3'
+            os.system('cls')
+            cvs_to_xlsx.convert_csv_to_xlsx()
+            print()
+            if cvs_to_xlsx.return_menu
+                os.system('cls')
+                continue
+
+        elif choice == '4'
+            os.system('cls')
+            cpf_in_sheets.cpf_in_sheets()
+            print()
+            if cpf_in_sheets.return_menu
+                os.system('cls')
+                continue
+
+        elif choice == '5'
+            print(Saindo do programa. Até mais!)
+            break
+        else
+            print(Opção inválida. Tente novamente.)
+
+
+if __name__ == __main__
+    main()
