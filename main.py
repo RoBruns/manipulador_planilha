@@ -22,14 +22,33 @@ class App(QMainWindow):
                 file_names = ", ".join(os.path.basename(file)
                                        for file in selected_files)
 
-                # Mostrar a mensagem pop-up
-                QMessageBox.information(
-                    self, "Arquivos Selecionados", f"Arquivos selecionados: {file_names}")
-
                 current_directory = os.getcwd()
                 upload_folder = os.path.join(current_directory, "upload_file")
+
+                # Crie a pasta 'upload_file' se não existir
                 if not os.path.exists(upload_folder):
                     os.makedirs(upload_folder)
+
+                # Verifique se a pasta já possui arquivos
+                existing_files = os.listdir(upload_folder)
+                if existing_files:
+                    # Pasta contém arquivos, solicite confirmação do usuário
+                    msg_box = QMessageBox()
+                    msg_box.setIcon(QMessageBox.Question)
+                    msg_box.setText(
+                        "A pasta 'upload_file' já contém arquivos. Deseja apagá-los e adicionar os novos arquivos?")
+                    msg_box.setStandardButtons(
+                        QMessageBox.Yes | QMessageBox.No)
+                    result = msg_box.exec()
+
+                    if result == QMessageBox.Yes:
+                        # O usuário concordou em apagar os arquivos existentes
+                        for existing_file in existing_files:
+                            existing_file_path = os.path.join(
+                                upload_folder, existing_file)
+                            os.remove(existing_file_path)
+                        QMessageBox.information(
+                            self, "Arquivos Removidos", "Os arquivos existentes foram removidos.")
 
                 for file in selected_files:
                     file_name = os.path.basename(file)
@@ -37,9 +56,16 @@ class App(QMainWindow):
                     os.rename(file, destination_path)
                     print("Arquivo movido para:", destination_path)
 
+                file_count = len(os.listdir(upload_folder))
+
                 # Atualizar a etiqueta na janela principal
-                self.ui.file_info_label.setText(
-                    f"{file_names}")
+                if file_count == 1:
+                    self.ui.file_info_label.setText(
+                        f"{file_names}")
+                else:
+                    self.ui.file_info_label.setText(
+                        f"{str(file_count)} Arquivos")
+
             else:
                 # Nenhum arquivo selecionado
                 QMessageBox.warning(self, "Nenhum Arquivo",

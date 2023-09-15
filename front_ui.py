@@ -49,5 +49,5 @@ class Ui_form(object):
             "form", u"Selecionar arquivo", None))
         self.label.setText("")
         self.file_info_label.setText(
-            QCoreApplication.translate("form", u"NUll", None))
+            QCoreApplication.translate("form", u"NULL", None))
     # retranslateUi
