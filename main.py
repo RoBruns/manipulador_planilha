@@ -23,7 +23,7 @@ def main():
             os.system('cls')
             sep.separate_sheet()
             print()
-            if sep.return_:
+            if sep.return_menu:
                 os.system('cls')
                 continue
 
@@ -31,7 +31,7 @@ def main():
             os.system('cls')
             join.combine_sheets()
             print()
-            if join.return_:
+            if join.return_menu:
                 os.system('cls')
                 continue
 
@@ -39,7 +39,7 @@ def main():
             os.system('cls')
             cvs_to_xlsx.convert_csv_to_xlsx()
             print()
-            if cvs_to_xlsx.return_:
+            if cvs_to_xlsx.return_menu:
                 os.system('cls')
                 continue
 
@@ -47,7 +47,7 @@ def main():
             os.system('cls')
             cpf_in_sheets.cpf_in_sheets()
             print()
-            if cpf_in_sheets.return_:
+            if cpf_in_sheets.return_menu:
                 os.system('cls')
                 continue
 

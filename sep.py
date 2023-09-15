@@ -5,9 +5,9 @@ import glob
 def separate_sheet():
     # Use glob para encontrar todos os arquivos .xlsx na pasta
     xlsx_files = glob.glob("upload_file/*.xlsx")
-    global return_
+    global return_menu
     output_name = ""
-    return_ = False  # Variável para voltar para o menu
+    return_menu = False  # Variável para voltar para o menu
     # Verifique se há pelo menos um arquivo .xlsx
     if not xlsx_files:
         print("Nenhum arquivo .xlsx encontrado na pasta 'upload_file'. Por favor, adicione um arquivo .xlsx antes de continuar.")
@@ -27,7 +27,7 @@ def separate_sheet():
         print('3 - Voltar para o menú')
         choice = int(input())
         # Define o número máximo de linhas em cada parte
-        if return_:
+        if not return_menu:
             output_name = input('Digite o nome do arquivo de saída: ')
 
         def split_base(output_name):
@@ -79,9 +79,9 @@ def separate_sheet():
             split_base(output_name)
 
         elif choice == 3:
-            return_ = True
+            return_menu = True
             print('Voltando ')
-            return return_
+            return return_menu
 
         else:
             print('Opção inválida')
