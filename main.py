@@ -3,6 +3,7 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from bin import front_ui
 from bin import sep  # Importe o módulo sep
+from bin import join
 
 
 class App(QMainWindow):
@@ -12,6 +13,7 @@ class App(QMainWindow):
         self.ui.setupUi(self)
         self.ui.openFileButton.clicked.connect(self.show_file_dialog)
         self.ui.separateFileButton.clicked.connect(self.separate_file)
+        self.ui.joiFileButtom.clicked.connect(self.join_file)
         self.app = app
 
         # Variável de controle para rastrear se um arquivo foi selecionado
@@ -76,6 +78,14 @@ class App(QMainWindow):
             return
 
         sep.separate_sheet()
+
+    def join_file(self):
+        if not self.file_selected:
+            QMessageBox.warning(self, "Nenhum Arquivo",
+                                "Nenhum arquivo foi selecionado.")
+            return
+
+        join.combine_sheets()
 
 
 def main():

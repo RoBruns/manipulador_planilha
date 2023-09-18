@@ -39,9 +39,9 @@ class Ui_form(object):
         self.separateFileButton = QPushButton(form)
         self.separateFileButton.setObjectName(u"pushButton")
         self.separateFileButton.setGeometry(QRect(340, 90, 121, 41))
-        self.pushButton_2 = QPushButton(form)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setGeometry(QRect(340, 140, 121, 41))
+        self.joiFileButtom = QPushButton(form)
+        self.joiFileButtom.setObjectName(u"joiFileButtom")
+        self.joiFileButtom.setGeometry(QRect(340, 140, 121, 41))
         self.pushButton_3 = QPushButton(form)
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setGeometry(QRect(340, 400, 121, 41))
@@ -74,7 +74,7 @@ class Ui_form(object):
             QCoreApplication.translate("form", u"NULL", None))
         self.separateFileButton.setText(
             QCoreApplication.translate("form", u"Separar", None))
-        self.pushButton_2.setText(
+        self.joiFileButtom.setText(
             QCoreApplication.translate("form", u"Juntar", None))
         self.pushButton_3.setText(
             QCoreApplication.translate("form", u"CSV para XLSX", None))
