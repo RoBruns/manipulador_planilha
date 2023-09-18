@@ -10,6 +10,9 @@
     <height>664</height>
    </rect>
   </property>
+  <property name="windowTitle">
+   <string>ManipuladorDePlanilha</string>
+  </property>
   <widget class="QPushButton" name="openFileButton">
    <property name="geometry">
     <rect>
@@ -26,30 +29,32 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>150</y>
-     <width>171</width>
-     <height>181</height>
+     <x>40</x>
+     <y>130</y>
+     <width>191</width>
+     <height>211</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icons/file_icon.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icons/file_icon.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
    <property name="pixmap">
-    <pixmap resource="images/icons.qrc">:/icons/file_icon.png</pixmap>
+    <pixmap resource="images/icons.qrc">:/icons/file_upload_icon_151357.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="file_info_label">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>340</y>
-     <width>101</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>NULL</string>
    </property>
   </widget>
   <widget class="QPushButton" name="separateFileButton">
@@ -65,7 +70,7 @@
     <string>Separar</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="joiFileButtom">
    <property name="geometry">
     <rect>
      <x>340</x>
@@ -78,7 +83,7 @@
     <string>Juntar</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="csvToXlsxButton">
    <property name="geometry">
     <rect>
      <x>340</x>
@@ -91,7 +96,7 @@
     <string>CSV para XLSX</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="cpfToTxtButton">
    <property name="geometry">
     <rect>
      <x>340</x>
@@ -140,15 +145,63 @@
     <string>Conversor</string>
    </property>
   </widget>
-  <zorder>pushButton_2</zorder>
-  <zorder>openFileButton</zorder>
-  <zorder>label</zorder>
-  <zorder>file_info_label</zorder>
-  <zorder>separateFileButton</zorder>
-  <zorder>pushButton_3</zorder>
-  <zorder>pushButton_4</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_3</zorder>
+  <widget class="QLabel" name="file_info_label">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>340</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>NULL</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>130</y>
+     <width>191</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icons/file_icon.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icons/file_icon.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images/icons.qrc">:/icons/file_download_icon_151366.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exportFilebutton">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>420</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Exportar arquivo</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="images/icons.qrc"/>

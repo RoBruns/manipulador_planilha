@@ -30,14 +30,13 @@ class Ui_form(object):
         self.openFileButton.setGeometry(QRect(70, 420, 141, 41))
         self.label = QLabel(form)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(50, 150, 171, 181))
-        self.label.setPixmap(QPixmap(u"images/file_icon.png"))
+        self.label.setGeometry(QRect(40, 130, 191, 211))
+        self.label.setLayoutDirection(Qt.LeftToRight)
+        self.label.setAutoFillBackground(False)
+        self.label.setPixmap(QPixmap(u":/icons/file_upload_icon_151357.png"))
         self.label.setScaledContents(True)
-        self.file_info_label = QLabel(form)
-        self.file_info_label.setObjectName(u"file_info_label")
-        self.file_info_label.setGeometry(QRect(90, 340, 101, 16))
         self.separateFileButton = QPushButton(form)
-        self.separateFileButton.setObjectName(u"pushButton")
+        self.separateFileButton.setObjectName(u"separateFileButton")
         self.separateFileButton.setGeometry(QRect(340, 90, 121, 41))
         self.joiFileButtom = QPushButton(form)
         self.joiFileButtom.setObjectName(u"joiFileButtom")
@@ -58,6 +57,20 @@ class Ui_form(object):
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(340, 360, 121, 41))
         self.label_3.setFont(font)
+        self.file_info_label = QLabel(form)
+        self.file_info_label.setObjectName(u"file_info_label")
+        self.file_info_label.setGeometry(QRect(90, 340, 101, 16))
+        self.label_4 = QLabel(form)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(580, 130, 191, 211))
+        self.label_4.setLayoutDirection(Qt.LeftToRight)
+        self.label_4.setAutoFillBackground(False)
+        self.label_4.setPixmap(
+            QPixmap(u":/icons/file_download_icon_151366.png"))
+        self.label_4.setScaledContents(True)
+        self.exportFilebutton = QPushButton(form)
+        self.exportFilebutton.setObjectName(u"exportFilebutton")
+        self.exportFilebutton.setGeometry(QRect(610, 420, 141, 41))
 
         self.retranslateUi(form)
 
@@ -69,9 +82,15 @@ class Ui_form(object):
             "form", u"ManipuladorDePlanilha", None))
         self.openFileButton.setText(QCoreApplication.translate(
             "form", u"Selecionar arquivo", None))
+# if QT_CONFIG(tooltip)
+        self.label.setToolTip(QCoreApplication.translate(
+            "form", u"<html><head/><body><p><img src=\":/icons/file_icon.png\"/></p></body></html>", None))
+# endif // QT_CONFIG(tooltip)
+# if QT_CONFIG(whatsthis)
+        self.label.setWhatsThis(QCoreApplication.translate(
+            "form", u"<html><head/><body><p><img src=\":/icons/file_icon.png\"/></p></body></html>", None))
+# endif // QT_CONFIG(whatsthis)
         self.label.setText("")
-        self.file_info_label.setText(
-            QCoreApplication.translate("form", u"NULL", None))
         self.separateFileButton.setText(
             QCoreApplication.translate("form", u"Separar", None))
         self.joiFileButtom.setText(
@@ -84,4 +103,17 @@ class Ui_form(object):
             "form", u"Manipulador", None))
         self.label_3.setText(QCoreApplication.translate(
             "form", u"Conversor", None))
+        self.file_info_label.setText(
+            QCoreApplication.translate("form", u"NULL", None))
+# if QT_CONFIG(tooltip)
+        self.label_4.setToolTip(QCoreApplication.translate(
+            "form", u"<html><head/><body><p><img src=\":/icons/file_icon.png\"/></p></body></html>", None))
+# endif // QT_CONFIG(tooltip)
+# if QT_CONFIG(whatsthis)
+        self.label_4.setWhatsThis(QCoreApplication.translate(
+            "form", u"<html><head/><body><p><img src=\":/icons/file_icon.png\"/></p></body></html>", None))
+# endif // QT_CONFIG(whatsthis)
+        self.label_4.setText("")
+        self.exportFilebutton.setText(
+            QCoreApplication.translate("form", u"Exportar arquivo", None))
     # retranslateUi
