@@ -5,6 +5,8 @@ from bin import front_ui
 from bin import sep  # Importe o módulo sep
 from bin import join
 from bin import cpf_in_sheets
+from bin import cvs_to_xlsx
+import xlsxwriter
 
 
 class App(QMainWindow):
@@ -16,6 +18,7 @@ class App(QMainWindow):
         self.ui.separateFileButton.clicked.connect(self.separate_file)
         self.ui.joiFileButtom.clicked.connect(self.join_file)
         self.ui.cpfToTxtButton.clicked.connect(self.cpf_txt)
+        self.ui.csvToXlsxButton.clicked.connect(self.csv_xlsx)
         self.app = app
 
         # Variável de controle para rastrear se um arquivo foi selecionado
@@ -95,9 +98,17 @@ class App(QMainWindow):
                                 "Nenhum arquivo foi selecionado.")
             return
 
-        # Crie uma instância da janela de validação
         cpf_validation_window = cpf_in_sheets.CPFValidationWindow()
         cpf_validation_window.exec_()   # Chame a função diretamente para a validação de CPFs
+
+    def csv_xlsx(self):
+        if not self.file_selected:
+            QMessageBox.warning(self, "Nenhum Arquivo",
+                                "Nenhum arquivo foi selecionado.")
+            return
+
+        csv_to_xlsx_window = cvs_to_xlsx.CSVtoXLSXConverterWindow()
+        csv_to_xlsx_window.exec_()
 
 
 def main():

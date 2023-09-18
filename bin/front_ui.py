@@ -42,9 +42,9 @@ class Ui_form(object):
         self.joiFileButtom = QPushButton(form)
         self.joiFileButtom.setObjectName(u"joiFileButtom")
         self.joiFileButtom.setGeometry(QRect(340, 140, 121, 41))
-        self.pushButton_3 = QPushButton(form)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setGeometry(QRect(340, 400, 121, 41))
+        self.csvToXlsxButton = QPushButton(form)
+        self.csvToXlsxButton.setObjectName(u"csvToXlsxButton")
+        self.csvToXlsxButton.setGeometry(QRect(340, 400, 121, 41))
         self.cpfToTxtButton = QPushButton(form)
         self.cpfToTxtButton.setObjectName(u"cpfToTxtButton")
         self.cpfToTxtButton.setGeometry(QRect(340, 450, 121, 41))
@@ -76,7 +76,7 @@ class Ui_form(object):
             QCoreApplication.translate("form", u"Separar", None))
         self.joiFileButtom.setText(
             QCoreApplication.translate("form", u"Juntar", None))
-        self.pushButton_3.setText(
+        self.csvToXlsxButton.setText(
             QCoreApplication.translate("form", u"CSV para XLSX", None))
         self.cpfToTxtButton.setText(
             QCoreApplication.translate("form", u"CPF para TXT", None))
