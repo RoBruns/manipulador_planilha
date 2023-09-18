@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBo
 from bin import front_ui
 from bin import sep  # Importe o módulo sep
 from bin import join
+from bin import cpf_in_sheets
 
 
 class App(QMainWindow):
@@ -14,6 +15,7 @@ class App(QMainWindow):
         self.ui.openFileButton.clicked.connect(self.show_file_dialog)
         self.ui.separateFileButton.clicked.connect(self.separate_file)
         self.ui.joiFileButtom.clicked.connect(self.join_file)
+        self.ui.cpfToTxtButton.clicked.connect(self.cpf_txt)
         self.app = app
 
         # Variável de controle para rastrear se um arquivo foi selecionado
@@ -86,6 +88,16 @@ class App(QMainWindow):
             return
 
         join.combine_sheets()
+
+    def cpf_txt(self):
+        if not self.file_selected:
+            QMessageBox.warning(self, "Nenhum Arquivo",
+                                "Nenhum arquivo foi selecionado.")
+            return
+
+        # Crie uma instância da janela de validação
+        cpf_validation_window = cpf_in_sheets.CPFValidationWindow()
+        cpf_validation_window.exec_()   # Chame a função diretamente para a validação de CPFs
 
 
 def main():

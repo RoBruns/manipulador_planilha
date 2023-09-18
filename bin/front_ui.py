@@ -45,9 +45,9 @@ class Ui_form(object):
         self.pushButton_3 = QPushButton(form)
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setGeometry(QRect(340, 400, 121, 41))
-        self.pushButton_4 = QPushButton(form)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setGeometry(QRect(340, 450, 121, 41))
+        self.cpfToTxtButton = QPushButton(form)
+        self.cpfToTxtButton.setObjectName(u"cpfToTxtButton")
+        self.cpfToTxtButton.setGeometry(QRect(340, 450, 121, 41))
         self.label_2 = QLabel(form)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(340, 50, 121, 41))
@@ -78,7 +78,7 @@ class Ui_form(object):
             QCoreApplication.translate("form", u"Juntar", None))
         self.pushButton_3.setText(
             QCoreApplication.translate("form", u"CSV para XLSX", None))
-        self.pushButton_4.setText(
+        self.cpfToTxtButton.setText(
             QCoreApplication.translate("form", u"CPF para TXT", None))
         self.label_2.setText(QCoreApplication.translate(
             "form", u"Manipulador", None))
