@@ -10,9 +10,6 @@
     <height>664</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>ManipuladorDePlanilha</string>
-  </property>
   <widget class="QPushButton" name="openFileButton">
    <property name="geometry">
     <rect>
@@ -35,11 +32,8 @@
      <height>181</height>
     </rect>
    </property>
-   <property name="text">
-    <string/>
-   </property>
    <property name="pixmap">
-    <pixmap>images/file_icon.png</pixmap>
+    <pixmap resource="images/icons.qrc">:/icons/file_icon.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -55,10 +49,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>NULL</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="separateFileButton">
    <property name="geometry">
     <rect>
      <x>340</x>
@@ -146,6 +140,15 @@
     <string>Conversor</string>
    </property>
   </widget>
+  <zorder>pushButton_2</zorder>
+  <zorder>openFileButton</zorder>
+  <zorder>label</zorder>
+  <zorder>file_info_label</zorder>
+  <zorder>separateFileButton</zorder>
+  <zorder>pushButton_3</zorder>
+  <zorder>pushButton_4</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
  </widget>
  <resources>
   <include location="images/icons.qrc"/>
