@@ -1,14 +1,14 @@
 import os
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
-from front_ui import Ui_form
-import sep  # Importe o módulo sep
+from bin import front_ui
+from bin import sep  # Importe o módulo sep
 
 
 class App(QMainWindow):
     def __init__(self, app):
         super().__init__()
-        self.ui = Ui_form()
+        self.ui = front_ui.Ui_form()
         self.ui.setupUi(self)
         self.ui.openFileButton.clicked.connect(self.show_file_dialog)
         self.ui.separateFileButton.clicked.connect(self.separate_file)
