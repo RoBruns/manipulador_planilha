@@ -1,7 +1,9 @@
+# main.py
 import os
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from front_ui import Ui_form
+import sep  # Importe o módulo sep
 
 
 class App(QMainWindow):
@@ -10,6 +12,11 @@ class App(QMainWindow):
         self.ui = Ui_form()
         self.ui.setupUi(self)
         self.ui.openFileButton.clicked.connect(self.show_file_dialog)
+        self.ui.separateFileButton.clicked.connect(
+            self.separate_file)  # Novo botão para separação
+
+        # Variável de controle para rastrear se um arquivo foi selecionado
+        self.file_selected = False
 
     def show_file_dialog(self):
         file_dialog = QFileDialog(self)
@@ -19,6 +26,8 @@ class App(QMainWindow):
         if file_dialog.exec():
             selected_files = file_dialog.selectedFiles()
             if selected_files:
+                self.file_selected = True  # Marque como True quando um arquivo for selecionado
+
                 file_names = ", ".join(os.path.basename(file)
                                        for file in selected_files)
 
@@ -66,12 +75,14 @@ class App(QMainWindow):
                     self.ui.file_info_label.setText(
                         f"{str(file_count)} Arquivos")
 
-            else:
-                # Nenhum arquivo selecionado
-                QMessageBox.warning(self, "Nenhum Arquivo",
-                                    "Nenhum arquivo foi selecionado.")
-                # Atualizar a etiqueta na janela principal
-                self.ui.file_info_label.setText("Null")
+    def separate_file(self):
+        if not self.file_selected:
+            QMessageBox.warning(self, "Nenhum Arquivo",
+                                "Nenhum arquivo foi selecionado.")
+            return
+
+        # Chame a função de separação do módulo sep
+        sep.separate_sheet()
 
 
 def main():

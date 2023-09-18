@@ -36,6 +36,28 @@ class Ui_form(object):
         self.file_info_label = QLabel(form)
         self.file_info_label.setObjectName(u"file_info_label")
         self.file_info_label.setGeometry(QRect(90, 340, 101, 16))
+        self.separateFileButton = QPushButton(form)
+        self.separateFileButton.setObjectName(u"pushButton")
+        self.separateFileButton.setGeometry(QRect(340, 90, 121, 41))
+        self.pushButton_2 = QPushButton(form)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(340, 140, 121, 41))
+        self.pushButton_3 = QPushButton(form)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setGeometry(QRect(340, 400, 121, 41))
+        self.pushButton_4 = QPushButton(form)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setGeometry(QRect(340, 450, 121, 41))
+        self.label_2 = QLabel(form)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(340, 50, 121, 41))
+        font = QFont()
+        font.setPointSize(16)
+        self.label_2.setFont(font)
+        self.label_3 = QLabel(form)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(340, 360, 121, 41))
+        self.label_3.setFont(font)
 
         self.retranslateUi(form)
 
@@ -50,4 +72,16 @@ class Ui_form(object):
         self.label.setText("")
         self.file_info_label.setText(
             QCoreApplication.translate("form", u"NULL", None))
+        self.separateFileButton.setText(
+            QCoreApplication.translate("form", u"Separar", None))
+        self.pushButton_2.setText(
+            QCoreApplication.translate("form", u"Juntar", None))
+        self.pushButton_3.setText(
+            QCoreApplication.translate("form", u"CSV para XLSX", None))
+        self.pushButton_4.setText(
+            QCoreApplication.translate("form", u"CPF para TXT", None))
+        self.label_2.setText(QCoreApplication.translate(
+            "form", u"Manipulador", None))
+        self.label_3.setText(QCoreApplication.translate(
+            "form", u"Conversor", None))
     # retranslateUi
