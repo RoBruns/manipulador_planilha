@@ -3,7 +3,7 @@ import os
 import pandas as pd
 from PySide6.QtWidgets import QApplication, QDialog, QVBoxLayout, QPushButton, QTextEdit, QMessageBox
 import sys
-import xlsxwriter
+import shutil
 
 
 class CSVtoXLSXConverterWindow(QDialog):
@@ -58,6 +58,7 @@ class CSVtoXLSXConverterWindow(QDialog):
                     df.to_excel(xlsx_file, engine='xlsxwriter')
                     self.append_text(
                         f"Arquivo CSV '{csv_file}' convertido para XLSX como '{xlsx_file}'.")
+                    shutil.move(xlsx_file, output_folder)
                 else:
                     self.append_text(
                         f"Conversão do arquivo CSV '{csv_file}' cancelada.")
