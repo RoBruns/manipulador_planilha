@@ -6,6 +6,7 @@ from bin import sep
 from bin import join
 from bin import cpf_in_sheets
 from bin import cvs_to_xlsx
+from bin import xlsx_to_csv
 import shutil
 
 
@@ -20,6 +21,9 @@ class App(QMainWindow):
         self.ui.cpfToTxtButton.clicked.connect(self.cpf_txt)
         self.ui.csvToXlsxButton.clicked.connect(self.csv_xlsx)
         self.ui.exportFilebutton.clicked.connect(self.export_file)
+        self.ui.xlsxToCsvButtom.clicked.connect(self.xlsx_csv)
+        self.ui.label.clicked.connect(self.show_file_dialog)
+        self.ui.label_4.clicked.connect(self.export_file)
         self.app = app
         self.file_selected = False
         self.export_folder = "output_file"
@@ -147,6 +151,14 @@ class App(QMainWindow):
 
         csv_to_xlsx_window = cvs_to_xlsx.CSVtoXLSXConverterWindow()
         csv_to_xlsx_window.exec_()
+
+    def xlsx_csv(self):
+        if not self.file_selected:
+            QMessageBox.warning(self, "Nenhum Arquivo ",
+                                "Nenhum arquivo foi selecionado.")
+            return
+        xlsx_to_csv_window = xlsx_to_csv.XLSXtoCSVConverterWindow()
+        xlsx_to_csv_window.exec()
 
 
 def main():
