@@ -100,7 +100,7 @@
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>450</y>
+     <y>500</y>
      <width>121</width>
      <height>41</height>
     </rect>
@@ -200,6 +200,19 @@
    </property>
    <property name="text">
     <string>Exportar arquivo</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="xlsxToCsvButton">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>450</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>XLSX para CVS</string>
    </property>
   </widget>
  </widget>

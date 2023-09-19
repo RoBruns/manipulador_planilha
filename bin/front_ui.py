@@ -47,6 +47,9 @@ class Ui_form(object):
         self.cpfToTxtButton = QPushButton(form)
         self.cpfToTxtButton.setObjectName(u"cpfToTxtButton")
         self.cpfToTxtButton.setGeometry(QRect(340, 450, 121, 41))
+        self.xlsxToCsvButtom = QPushButton(form)
+        self.xlsxToCsvButtom.setObjectName(u"xlsxToCsvButtom")
+        self.xlsxToCsvButtom.setGeometry(340, 450, 121, 41)
         self.label_2 = QLabel(form)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(340, 50, 121, 41))
@@ -99,6 +102,8 @@ class Ui_form(object):
             QCoreApplication.translate("form", u"CSV para XLSX", None))
         self.cpfToTxtButton.setText(
             QCoreApplication.translate("form", u"CPF para TXT", None))
+        self.xlsxToCsvButtom.setText(
+            QCoreApplication.translate("form", u"XLSX para CSV", None))
         self.label_2.setText(QCoreApplication.translate(
             "form", u"Manipulador", None))
         self.label_3.setText(QCoreApplication.translate(

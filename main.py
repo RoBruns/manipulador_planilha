@@ -23,7 +23,10 @@ class App(QMainWindow):
         self.app = app
         self.file_selected = False
         self.export_folder = "output_file"
-        self.selected_file_names = []
+        self.selected_files_names_input = []
+        self.selected_files_names_export = []
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        self.export_folder = os.path.join(current_directory, "output_file")
 
     def show_file_dialog(self):
         file_dialog = QFileDialog(self)
@@ -34,7 +37,7 @@ class App(QMainWindow):
             selected_files = file_dialog.selectedFiles()
             if selected_files:
                 self.file_selected = True
-                self.selected_file_names = [
+                self.selected_files_names_input = [
                     os.path.basename(file) for file in selected_files]
 
                 current_directory = os.getcwd()
@@ -71,7 +74,7 @@ class App(QMainWindow):
 
                 if file_count == 1:
                     self.ui.file_info_label.setText(
-                        f"{', '.join(self.selected_file_names)}")
+                        f"{', '.join(self.selected_files_names_input)}")
                 else:
                     self.ui.file_info_label.setText(
                         f"{str(file_count)} Arquivos")
@@ -92,7 +95,9 @@ class App(QMainWindow):
         if file_dialog.exec():
             export_path = file_dialog.selectedFiles()[0]
             if export_path:
-                for original_file_name in self.selected_file_names:
+                self.selected_files_names_export = os.listdir(
+                    self.export_folder)
+                for original_file_name in self.selected_files_names_export:
                     # Modificar o nome do arquivo aqui
                     modified_file_name = f"mod_{original_file_name}"
 
