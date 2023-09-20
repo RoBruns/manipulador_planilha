@@ -2,6 +2,7 @@ import glob
 import os
 import pandas as pd
 from PySide6.QtWidgets import QApplication, QDialog, QVBoxLayout, QPushButton, QTextEdit, QMessageBox
+from PySide6.QtGui import QIcon
 import sys
 import shutil
 import xlsxwriter
@@ -23,6 +24,8 @@ class CSVtoXLSXConverterWindow(QDialog):
         self.layout.addWidget(self.text_output)
 
         self.setLayout(self.layout)
+        icon_path = r"C:\Users\user\Downloads\rodrigo\project_bkup\images\incon.ico"
+        self.setWindowIcon(QIcon(icon_path))
 
     def convert_csv_to_xlsx(self):
         self.text_output.clear()

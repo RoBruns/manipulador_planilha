@@ -1,7 +1,7 @@
 import os
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
-from PySide6.QtGui import QDesktopServices
+from PySide6.QtGui import QDesktopServices, QIcon
 from PySide6.QtCore import QUrl
 from bin import front_ui
 from bin import sep
@@ -30,6 +30,8 @@ class App(QMainWindow):
         self.ui.xlsxToCsvButtom.clicked.connect(self.xlsx_csv)
         self.ui.label.clicked.connect(self.input_file)
         self.ui.label_4.clicked.connect(self.export_file)
+        icon_path = r"images\incon.ico"
+        self.setWindowIcon(QIcon(icon_path))
         self.app = app
         self.file_selected = False
         self.export_folder = "output_file"
