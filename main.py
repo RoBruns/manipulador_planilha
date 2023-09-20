@@ -1,6 +1,8 @@
 import os
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
+from PySide6.QtGui import QDesktopServices
+from PySide6.QtCore import QUrl
 from bin import front_ui
 from bin import sep
 from bin import join
@@ -33,6 +35,7 @@ class App(QMainWindow):
         self.selected_files_names_export = []
         current_directory = os.path.dirname(os.path.abspath(__file__))
         self.export_folder = os.path.join(current_directory, "output_file")
+        self.clean_folders()
 
     def input_file(self):
         file_dialog = QFileDialog(self)
@@ -88,17 +91,15 @@ class App(QMainWindow):
 
     def list_files_in_folder(self):
         folder_path = "./upload_file"
-        if folder_path:
-            # Lista os arquivos na pasta selecionada
-            file_list = [f for f in os.listdir(
-                folder_path) if os.path.isfile(os.path.join(folder_path, f))]
-            if file_list:
-                # Exibe um pop-up com a lista de arquivos
-                file_info = "\n".join(file_list)
-                QMessageBox.information(self, "Arquivos na Pasta", file_info)
-            else:
-                QMessageBox.information(
-                    self, "Pasta Vazia", "A pasta selecionada está vazia.")
+
+        if not os.path.exists(folder_path) or not os.listdir(folder_path):
+            QMessageBox.information(
+                self, "Pasta Vazia", "A pasta selecionada está vazia.")
+            return
+
+        # Abrir a pasta no explorador de arquivos padrão
+        folder_url = QUrl.fromLocalFile(folder_path)
+        QDesktopServices.openUrl(folder_url)
 
     def export_file(self):
         if not self.file_selected:
@@ -228,12 +229,13 @@ class App(QMainWindow):
             QMessageBox.warning(self, "Nenhum Arquivo",
                                 "Nenhum arquivo foi selecionado.")
             return
-        for selected_file_name in self.selected_files_names_input:
-            file_path = os.path.join(upload_folder, selected_file_name)
-            os.remove(file_path)
 
         cpf_validation_window = cpf_in_sheets.CPFValidationWindow()
         cpf_validation_window.exec_()   # Chame a função diretamente para a validação de CPFs
+
+        for selected_file_name in self.selected_files_names_input:
+            file_path = os.path.join(upload_folder, selected_file_name)
+            os.remove(file_path)
 
     def csv_xlsx(self):
         if not self.file_selected:
@@ -259,6 +261,35 @@ class App(QMainWindow):
         for selected_file_name in self.selected_files_names_input:
             file_path = os.path.join(upload_folder, selected_file_name)
             os.remove(file_path)
+
+    def clean_folders(self):
+        upload_folder = "./upload_file"
+        output_folder = "./output_file"
+
+        if os.path.exists(upload_folder):
+            shutil.rmtree(upload_folder)
+            os.makedirs(upload_folder)
+
+        if os.path.exists(output_folder):
+            shutil.rmtree(output_folder)
+            os.makedirs(output_folder)
+
+    def closeEvent(self, event):
+        upload_folder = "./upload_file"
+        output_folder = "./output_file"
+
+        if (os.path.exists(upload_folder) and os.listdir(upload_folder)) or (os.path.exists(output_folder) and os.listdir(output_folder)):
+            confirmation = QMessageBox.question(
+                self, "Confirmação",
+                "Existem arquivos não manipulados ou salvos.\nSe você fechar o aplicativo, esses arquivos serão apagados. Tem certeza de que deseja sair?",
+                QMessageBox.Yes | QMessageBox.No
+            )
+
+            if confirmation != QMessageBox.Yes:
+                event.ignore()
+                return
+
+        event.accept()
 
 
 def main():

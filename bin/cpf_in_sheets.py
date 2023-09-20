@@ -93,6 +93,7 @@ class CPFValidationWindow(QDialog):
                         os.path.join("output_file", invalid_cpf_file_name), 'w') as invalid_f:
                     for cpf in planilha[coluna_encontrada[0]]:
                         cpf = str(cpf)
+                        cpf = cpf.rjust(11, '0')
                         if self.validate_cpf(cpf):
                             f.write(cpf + '\n')
                         else:

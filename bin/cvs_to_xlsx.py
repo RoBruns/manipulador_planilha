@@ -40,13 +40,7 @@ class CSVtoXLSXConverterWindow(QDialog):
         self.append_text(
             f"Foram encontrados {len(csv_files)} arquivos CSV na pasta.")
 
-        confirmation = QMessageBox.question(
-            self, "Confirmação", "Deseja continuar a conversão?",
-            QMessageBox.Yes | QMessageBox.No
-        )
-
-        if confirmation != QMessageBox.Yes:
-            return
+        xlsx_files_to_move = []
 
         for csv_file in csv_files:
             xlsx_file = os.path.join(output_folder, os.path.basename(
@@ -55,18 +49,18 @@ class CSVtoXLSXConverterWindow(QDialog):
             try:
                 df = pd.read_csv(csv_file)
 
-                if confirmation == QMessageBox.Yes:
-                    df.to_excel(xlsx_file, engine='xlsxwriter')
-                    self.append_text(
-                        f"Arquivo CSV '{csv_file}' convertido para XLSX como '{xlsx_file}'.")
-                    shutil.move(xlsx_file, output_folder)
-                else:
-                    self.append_text(
-                        f"Conversão do arquivo CSV '{csv_file}' cancelada.")
+                df.to_excel(xlsx_file, engine='xlsxwriter')
+                self.append_text(
+                    f"Arquivo CSV '{csv_file}' convertido para XLSX como '{xlsx_file}'.")
+                xlsx_files_to_move.append(xlsx_file)
+
             except pd.errors.ParserError as e:
                 self.append_text(f"Erro ao ler o arquivo CSV '{csv_file}': {e}")
                 line_number = e.args[0].split("line ")[1].split(":")[0]
                 self.append_text(f"O erro ocorreu na linha {line_number}")
+
+        for xlsx_file in xlsx_files_to_move:
+            shutil.move(xlsx_file, output_folder)
 
         self.accept()
 
