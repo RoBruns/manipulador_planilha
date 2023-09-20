@@ -262,10 +262,10 @@ class App(QMainWindow):
             return
 
         join.combine_sheets()
-        if join.combine_sheets()
-        for selected_file_name in self.selected_files_names_input:
-            file_path = os.path.join(upload_folder, selected_file_name)
-            os.remove(file_path)
+        if join.combine_sheets():
+            for selected_file_name in self.selected_files_names_input:
+                file_path = os.path.join(upload_folder, selected_file_name)
+                os.remove(file_path)
 
     def cpf_txt(self):
         if not self.file_selected:
