@@ -45,6 +45,9 @@ class Ui_form(object):
         self.joiFileButtom = QPushButton(form)
         self.joiFileButtom.setObjectName(u"joiFileButtom")
         self.joiFileButtom.setGeometry(QRect(340, 140, 121, 41))
+        self.revomeDuplicateButton = QPushButton(form)
+        self.revomeDuplicateButton.setObjectName(u"revomeDuplicateButton")
+        self.revomeDuplicateButton.setGeometry(QRect(340, 190, 121, 41))
         self.csvToXlsxButton = QPushButton(form)
         self.csvToXlsxButton.setObjectName(u"csvToXlsxButton")
         self.csvToXlsxButton.setGeometry(QRect(340, 400, 121, 41))
@@ -104,6 +107,8 @@ class Ui_form(object):
         self.label.setWhatsThis("")
         self.separateFileButton.setText(
             QCoreApplication.translate("form", u"Separar", None))
+        self.revomeDuplicateButton.setText(
+            QCoreApplication.translate("form", u"❌ Duplicados", None))
         self.joiFileButtom.setText(
             QCoreApplication.translate("form", u"Juntar", None))
         self.csvToXlsxButton.setText(

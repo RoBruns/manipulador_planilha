@@ -9,6 +9,7 @@ from bin import join
 from bin import cpf_in_sheets
 from bin import cvs_to_xlsx
 from bin import xlsx_to_csv
+from bin import remove_duplicate
 import shutil
 
 
@@ -20,6 +21,7 @@ class App(QMainWindow):
         self.ui.openFileButton.clicked.connect(self.input_file)
         self.ui.listFilesButton.clicked.connect(self.list_files_in_folder)
         self.ui.separateFileButton.clicked.connect(self.separate_file)
+        self.ui.revomeDuplicateButton.clicked.connect(self.remove_duplicate)
         self.ui.joiFileButtom.clicked.connect(self.join_file)
         self.ui.cpfToTxtButton.clicked.connect(self.cpf_txt)
         self.ui.csvToXlsxButton.clicked.connect(self.csv_xlsx)
@@ -36,6 +38,44 @@ class App(QMainWindow):
         current_directory = os.path.dirname(os.path.abspath(__file__))
         self.export_folder = os.path.join(current_directory, "output_file")
         self.clean_folders()
+
+    def remove_duplicate(self):
+        if not self.file_selected:
+            QMessageBox.warning(self, "Nenhum Arquivo",
+                                "Nenhum arquivo foi selecionado.")
+            return
+
+        if len(self.selected_files_names_input) != 1:
+            QMessageBox.warning(self, "Seleção Inválida",
+                                "Por favor, selecione exatamente um arquivo para remover duplicatas.")
+            return
+
+        input_file_path = os.path.join(
+            upload_folder, self.selected_files_names_input[0])
+        removed_duplicates = remove_duplicate.remove_duplicates_from_xlsx(
+            input_file_path)
+
+        if removed_duplicates >= 0:
+            QMessageBox.information(
+                self, "Duplicatas Removidas",
+                f"{int(removed_duplicates)} CPF(s) duplicado(s) foram removidos com sucesso.",
+                QMessageBox.Ok
+            )
+            # Atualize a lista com o nome do arquivo atualizado
+            self.selected_files_names_input[0] = os.path.basename(
+                input_file_path)
+
+            # Limpe a pasta "output_file" se houver arquivos lá
+            output_files = os.listdir(self.export_folder)
+            for output_file in output_files:
+                output_file_path = os.path.join(self.export_folder, output_file)
+                os.remove(output_file_path)
+        else:
+            QMessageBox.warning(
+                self, "Erro ao Remover Duplicatas",
+                "Ocorreu um erro ao remover duplicatas.",
+                QMessageBox.Ok
+            )
 
     def input_file(self):
         file_dialog = QFileDialog(self)
