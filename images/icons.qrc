@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>file_download_icon_151366.png</file>
+    <file>file_icon.png</file>
+    <file>file_upload_icon_151357.png</file>
+  </qresource>
+</RCC>
