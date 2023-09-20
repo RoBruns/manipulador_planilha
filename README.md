@@ -15,5 +15,6 @@ Contribuições não são aceitas neste projeto, pois ele é mantido exclusivame
 Contato
 Autor: Rodrigo
 Email: rodrigobrunsfh@gmail.com
+
 Aviso Legal
 Este aplicativo não possui uma licença formal. Você é livre para usá-lo, baixando e instalando conforme as instruções acima.
