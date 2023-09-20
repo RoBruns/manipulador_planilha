@@ -4,3 +4,5 @@ images/
 .images/
 venv/Lib/site-packages/__pycache__/six.cpython-311.pyc
 venv/pyvenv.cfg
+upload_file/*
+output_file/*

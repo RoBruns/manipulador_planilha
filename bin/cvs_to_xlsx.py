@@ -4,6 +4,7 @@ import pandas as pd
 from PySide6.QtWidgets import QApplication, QDialog, QVBoxLayout, QPushButton, QTextEdit, QMessageBox
 import sys
 import shutil
+import xlsxwriter
 
 
 class CSVtoXLSXConverterWindow(QDialog):

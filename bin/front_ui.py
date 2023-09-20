@@ -28,7 +28,10 @@ class Ui_form(object):
         self.openFileButton = QPushButton(form)
         self.openFileButton.setObjectName(u"openFileButton")
         self.openFileButton.setGeometry(QRect(70, 420, 141, 41))
-        self.label = QPushButton(form)  # Mantemos o nome "label"
+        self.listFilesButton = QPushButton(form)
+        self.listFilesButton.setObjectName(u"listFilesButton")
+        self.listFilesButton.setGeometry(QRect(220, 420, 41, 41))
+        self.label = QPushButton(form)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(40, 130, 191, 211))
         self.label.setLayoutDirection(Qt.LeftToRight)
@@ -75,7 +78,9 @@ class Ui_form(object):
         self.exportFilebutton = QPushButton(form)
         self.exportFilebutton.setObjectName(u"exportFilebutton")
         self.exportFilebutton.setGeometry(QRect(610, 420, 141, 41))
-
+        self.exportBackButton = QPushButton(form)
+        self.exportBackButton.setObjectName(u"exportBackButton")
+        self.exportBackButton.setGeometry(QRect(610, 470, 141, 41))
         self.retranslateUi(form)
 
         QMetaObject.connectSlotsByName(form)
@@ -95,6 +100,8 @@ class Ui_form(object):
             "form", u"<html><head/><body><p><img src=\":/icons/file_icon.png\"/></p></body></html>", None))
 # endif // QT_CONFIG(whatsthis)
         self.label.setText("")
+        self.label.setToolTip("")
+        self.label.setWhatsThis("")
         self.separateFileButton.setText(
             QCoreApplication.translate("form", u"Separar", None))
         self.joiFileButtom.setText(
@@ -120,6 +127,12 @@ class Ui_form(object):
             "form", u"<html><head/><body><p><img src=\":/icons/file_icon.png\"/></p></body></html>", None))
 # endif // QT_CONFIG(whatsthis)
         self.label_4.setText("")
+        self.label_4.setToolTip("")
+        self.label_4.setWhatsThis("")
         self.exportFilebutton.setText(
             QCoreApplication.translate("form", u"Exportar arquivo", None))
+        self.listFilesButton.setText(QCoreApplication.translate(
+            "form", u"📂", None))
+        self.exportBackButton.setText(
+            QCoreApplication.translate("form", u"Mandar para upload", None))
     # retranslateUi
