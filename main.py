@@ -250,9 +250,10 @@ class App(QMainWindow):
 
         sep.separate_sheet()
 
-        for selected_file_name in self.selected_files_names_input:
-            file_path = os.path.join(upload_folder, selected_file_name)
-            os.remove(file_path)
+        if sep.separate_sheet:
+            for selected_file_name in self.selected_files_names_input:
+                file_path = os.path.join(upload_folder, selected_file_name)
+                os.remove(file_path)
 
     def join_file(self):
         if not self.file_selected:
@@ -261,7 +262,7 @@ class App(QMainWindow):
             return
 
         join.combine_sheets()
-
+        if join.combine_sheets()
         for selected_file_name in self.selected_files_names_input:
             file_path = os.path.join(upload_folder, selected_file_name)
             os.remove(file_path)
@@ -288,9 +289,10 @@ class App(QMainWindow):
         csv_to_xlsx_window = cvs_to_xlsx.CSVtoXLSXConverterWindow()
         csv_to_xlsx_window.exec_()
 
-        for selected_file_name in self.selected_files_names_input:
-            file_path = os.path.join(upload_folder, selected_file_name)
-            os.remove(file_path)
+        if cvs_to_xlsx:
+            for selected_file_name in self.selected_files_names_input:
+                file_path = os.path.join(upload_folder, selected_file_name)
+                os.remove(file_path)
 
     def xlsx_csv(self):
         if not self.file_selected:
@@ -300,9 +302,10 @@ class App(QMainWindow):
         xlsx_to_csv_window = xlsx_to_csv.XLSXtoCSVConverterWindow()
         xlsx_to_csv_window.exec()
 
-        for selected_file_name in self.selected_files_names_input:
-            file_path = os.path.join(upload_folder, selected_file_name)
-            os.remove(file_path)
+        if xlsx_to_csv_window:
+            for selected_file_name in self.selected_files_names_input:
+                file_path = os.path.join(upload_folder, selected_file_name)
+                os.remove(file_path)
 
     def clean_folders(self):
         upload_folder = "./upload_file"

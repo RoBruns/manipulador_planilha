@@ -34,7 +34,7 @@ class XLSXtoCSVConverterWindow(QDialog):
         if not xlsx_files:
             self.show_message(
                 "Nenhum arquivo XLSX encontrado na pasta. Por favor, adicione um arquivo XLSX antes de continuar.")
-            return
+            return False
 
         self.append_text(
             f"Foram encontrados {len(xlsx_files)} arquivos XLSX na pasta.")

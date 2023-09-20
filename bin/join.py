@@ -10,7 +10,7 @@ def combine_sheets():
 
     if not files:
         show_message("Nenhum arquivo .xlsx encontrado na pasta 'upload_file'.")
-        return
+        return False
 
     # Criar uma lista vazia para armazenar as planilhas
     sheets = []

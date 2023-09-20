@@ -1,9 +1,9 @@
 [Setup]
 AppName=ManipuladorDePlanilha
-AppVersion=1.0
+AppVersion=alpha 1.1
 DefaultDirName={pf}\ManipuladorDePlanilha
 OutputDir=Output
-OutputBaseFilename=Setup
+OutputBaseFilename=ManipuladorSetup
 Compression=lzma2
 SolidCompression=yes
 
@@ -13,3 +13,9 @@ Name: "{app}\output_file"
 
 [Files]
 Source: "ManipuladorDePlanilha.exe"; DestDir: "{app}"
+
+[Icons]
+Name: "{commondesktop}\ManipuladorDePlanilha"; Filename: "{app}\ManipuladorDePlanilha.exe"
+
+[Tasks]
+Name: "desktopicon"; Description: "Criar um atalho na área de trabalho"; GroupDescription: "Opções de Instalação"; Flags: unchecked

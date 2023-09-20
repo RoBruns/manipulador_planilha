@@ -110,7 +110,7 @@ def separate_sheet():
     if not xlsx_files:
         QMessageBox.warning(
             None, "Nenhum Arquivo", "Nenhum arquivo .xlsx encontrado na pasta 'upload_file'. Por favor, adicione um arquivo .xlsx, ou converta antes de continuar.", QMessageBox.Ok)
-        return
+        return False
 
     base_file = xlsx_files[0]
     base_file_name = base_file.split("upload_file")[-1].replace("\\'", '')
