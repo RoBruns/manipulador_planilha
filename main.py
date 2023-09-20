@@ -132,6 +132,10 @@ class App(QMainWindow):
                         f"{str(file_count)} Arquivos")
 
     def list_files_in_folder(self):
+        file_dialog = QFileDialog(self)
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
+
         folder_path = "./upload_file"
 
         if not os.path.exists(folder_path) or not os.listdir(folder_path):
@@ -144,6 +148,11 @@ class App(QMainWindow):
         QDesktopServices.openUrl(folder_url)
 
     def export_file(self):
+
+        file_dialog = QFileDialog(self)
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
+
         if not self.file_selected:
             QMessageBox.warning(self, "Nenhum Arquivo",
                                 "Nenhum arquivo foi selecionado.")
@@ -207,6 +216,10 @@ class App(QMainWindow):
                         self, "Erros ao Exportar Arquivos", error_message)
 
     def export_back_to_upload(self):
+        file_dialog = QFileDialog(self)
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
+
         if not os.path.exists(self.export_folder):
             QMessageBox.warning(
                 self, "Nenhum Arquivo", "A pasta 'output_file' está vazia.")
@@ -235,6 +248,9 @@ class App(QMainWindow):
             QMessageBox.information(
                 self, "Arquivos Exportados de Volta para 'upload_file'",
                 f"{len(successful_exports)} arquivo(s) exportado(s) de volta para 'upload_file':\n{', '.join(successful_exports)}")
+            file_dialog = QFileDialog(self)
+            file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+            file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
 
         if error_exports:
             error_message = "\n".join(
@@ -243,6 +259,10 @@ class App(QMainWindow):
                 self, "Erros ao Exportar Arquivos", error_message)
 
     def separate_file(self):
+        file_dialog = QFileDialog(self)
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
+
         if not self.file_selected:
             QMessageBox.warning(self, "Nenhum Arquivo",
                                 "Nenhum arquivo foi selecionado.")
@@ -256,6 +276,10 @@ class App(QMainWindow):
                 os.remove(file_path)
 
     def join_file(self):
+        file_dialog = QFileDialog(self)
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
+
         if not self.file_selected:
             QMessageBox.warning(self, "Nenhum Arquivo",
                                 "Nenhum arquivo foi selecionado.")
@@ -268,6 +292,10 @@ class App(QMainWindow):
                 os.remove(file_path)
 
     def cpf_txt(self):
+        file_dialog = QFileDialog(self)
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
+
         if not self.file_selected:
             QMessageBox.warning(self, "Nenhum Arquivo",
                                 "Nenhum arquivo foi selecionado.")
@@ -281,6 +309,10 @@ class App(QMainWindow):
             os.remove(file_path)
 
     def csv_xlsx(self):
+        file_dialog = QFileDialog(self)
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
+
         if not self.file_selected:
             QMessageBox.warning(self, "Nenhum Arquivo",
                                 "Nenhum arquivo foi selecionado.")
@@ -295,6 +327,10 @@ class App(QMainWindow):
                 os.remove(file_path)
 
     def xlsx_csv(self):
+        file_dialog = QFileDialog(self)
+        file_dialog.setFileMode(QFileDialog.FileMode.ExistingFiles)
+        file_dialog.setNameFilter("All Files (*);;Text Files (*.txt)")
+
         if not self.file_selected:
             QMessageBox.warning(self, "Nenhum Arquivo ",
                                 "Nenhum arquivo foi selecionado.")
