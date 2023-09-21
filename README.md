@@ -7,7 +7,7 @@ Como Usar
 Baixe e Instale
 
 
-Baixe o instalador do aplicativo no link .
+Baixe o instalador do aplicativo no link https://drive.google.com/file/d/1rI-ChHBJ-33OAE-v4VxMdIJ_fTsPhcLz/view?usp=sharing.
 
 Execute o instalador para instalar o aplicativo em seu computador.
 
