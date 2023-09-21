@@ -7,7 +7,7 @@ Como Usar
 Baixe e Instale
 
 
-Baixe o instalador do aplicativo no link https://drive.google.com/file/d/1fyCubFX6Dz3hxbFv_n_if3MZ-JjJFifn/view?usp=sharing.
+Baixe o instalador do aplicativo no link https://www.mediafire.com/file/hh1d23es8lxy24b/ManipuladorDePlanilhaInstaller.exe/file.
 (está sem assinatura digital, por isso o Windowns Defender aponta virús, caso queira escanear fique à vontade)
 
 Execute o instalador para instalar o aplicativo em seu computador.
