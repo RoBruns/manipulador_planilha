@@ -24,7 +24,7 @@ class CSVtoXLSXConverterWindow(QDialog):
         self.layout.addWidget(self.text_output)
 
         self.setLayout(self.layout)
-        icon_path = r"C:\Users\user\Downloads\rodrigo\project_bkup\images\incon.ico"
+        icon_path = r"\images\incon.ico"
         self.setWindowIcon(QIcon(icon_path))
 
     def convert_csv_to_xlsx(self):
