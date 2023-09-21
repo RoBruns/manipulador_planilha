@@ -7,7 +7,8 @@ Como Usar
 Baixe e Instale
 
 
-Baixe o instalador do aplicativo no link https://drive.google.com/file/d/1rI-ChHBJ-33OAE-v4VxMdIJ_fTsPhcLz/view?usp=sharing.
+Baixe o instalador do aplicativo no link https://drive.google.com/file/d/1fyCubFX6Dz3hxbFv_n_if3MZ-JjJFifn/view?usp=sharing.
+(está sem assinatura digital, por isso o Windowns Defender aponta virús, caso queira escanear fique à vontade)
 
 Execute o instalador para instalar o aplicativo em seu computador.
 
